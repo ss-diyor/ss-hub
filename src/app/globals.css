@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #05070a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 96px;
+}
+
+body {
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgba(46, 92, 168, 0.55);
+  color: #f8fafc;
+}
+
+@layer components {
+  .section {
+    @apply relative mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28;
+  }
+
+  .section-heading {
+    @apply max-w-3xl;
+  }
+
+  .section-heading h2 {
+    @apply mt-3 text-3xl font-semibold leading-tight tracking-normal text-slate-50 sm:text-5xl;
+  }
+
+  .eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.18em] text-blue-300;
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium text-muted transition hover:text-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+
+  .nav-link::after {
+    @apply absolute -bottom-2 left-0 h-px w-full origin-left scale-x-0 bg-secondary transition-transform duration-300 content-[''];
+  }
+
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    @apply scale-x-100;
+  }
+
+  .button-primary,
+  .button-secondary,
+  .contact-link {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-ink;
+  }
+
+  .button-primary {
+    @apply border border-secondary/70 bg-secondary text-white shadow-[0_16px_54px_rgba(46,92,168,0.35)] hover:bg-primary;
+  }
+
+  .button-secondary {
+    @apply border border-line bg-surface text-slate-100 hover:border-secondary/70;
+  }
+
+  .contact-link {
+    @apply border border-line bg-ink/70 text-slate-100 hover:border-secondary/70 hover:bg-primary/20;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
